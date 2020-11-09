@@ -11,4 +11,4 @@ elif weather >= 12.00 or weather == 14.9:
 elif weather >= 5 or weather == 11.9:
     print("Cold")
 else:
-    print("unknown!")
+    print("unknown")
