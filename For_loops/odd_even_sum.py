@@ -1,7 +1,7 @@
 lst = []
 n = int(input())
 
-for i in range(n):
+for i in range(0, n):
     number = int(input())
     lst.append(number)
 odd = sum(lst[0::2])
