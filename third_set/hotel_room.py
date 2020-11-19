@@ -22,6 +22,7 @@ elif month == "June" or month == "September":
     if stay > 14:
         discount = price1 * 0.2
         price1 -= discount
+
 elif month == "July" or month == "August":
     price1 = 76
     price2 = 77
