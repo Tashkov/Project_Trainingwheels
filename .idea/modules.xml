@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SoftUni-uprajneniq.iml" filepath="$PROJECT_DIR$/.idea/SoftUni-uprajneniq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../pythonProjects_lvl_0/.idea/pythonProjects_lvl_0.iml" filepath="$PROJECT_DIR$/../pythonProjects_lvl_0/.idea/pythonProjects_lvl_0.iml" />
     </modules>
   </component>
 </project>
