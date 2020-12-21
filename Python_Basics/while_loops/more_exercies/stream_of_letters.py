@@ -1,4 +1,3 @@
-import string
 line = input()  # The user must input only letters from the latin alphabet
 
 secret_word = "con"
@@ -11,17 +10,13 @@ while line != "End":
         secret_counter += 1
         secret_word = secret_word.replace(line,"")
         if secret_counter % 3 == 0:  # the logic for the secret word
-            word += temp_word
-            word += " "
+            word += temp_word + " "
             secret_word = "con"
             temp_word = ""
-            line = input()
-        else:
-            line = input()
-    elif line not in string.ascii_letters:  # checks whether there is a symbol
+    elif not line.isalpha():  # checks whether there is a symbol
         line = input()
+        continue
     else:
         temp_word += line
-        line = input()
-
+    line = input()
 print(word)

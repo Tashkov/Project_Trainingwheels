@@ -1,6 +1,6 @@
 weather = str(input())
 
 if weather == "sunny":
-    print("It`s warm outside!")
+    print("It's warm outside!")
 else:
-    print("It`s cold outside!")
+    print("It's cold outside!")
