@@ -2,11 +2,11 @@ n = int(input())  # num from 1 - 9
 
 num = n
 
-for num1 in range(1, 10):
-    for num2 in range(1, 10):
-        for num3 in range(1, 10):
-            for num4 in range(1, 10):
-                if (num1 + num2) == (num3 + num4) and num % (num1 + num2) == 0:
-                    print(f"{num1}{num2}{num3}{num4}", end=" ")
+for A in range(1, 10):
+    for B in range(1, 10):
+        for x in range(1, 10):
+            for y in range(1, 10):
+                if (A + B) == (x + y) and num % (A + B) == 0:
+                    print(f"{A}{B}{x}{y}", end=" ")
                 else:
                     continue
