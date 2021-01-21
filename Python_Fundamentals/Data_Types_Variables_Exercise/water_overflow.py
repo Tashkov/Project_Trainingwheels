@@ -1,13 +1,17 @@
 n = int(input())
 
-capacity = 225
+capacity = 255
 input_water = 0
 
 for i in range(n):
     liters_water = int(input())
-    input_water += liters_water
-    if input_water > capacity:
+
+    if liters_water > capacity:
         print("Insufficient capacity!")
+    else:
+        capacity -= liters_water
+        input_water += liters_water
+        continue
 
 print(input_water)
 
