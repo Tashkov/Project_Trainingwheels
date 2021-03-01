@@ -1,17 +1,20 @@
 numbers = [int(num) for num in input().split()]
 average = sum(numbers) / len(numbers)
 top_five_numbers = []
+numbers.sort(reverse=True)
+
 counter = 5
 
-for number_id in range((len(numbers) - 1), 0, -1):
-    if numbers[number_id] > average:
+for number in numbers:
+    if number > average:
         counter -= 1
-        top_five_numbers.append(numbers[number_id])
+        top_five_numbers.append(number)
         if counter == 5:
             print("No")
-            break
+            exit()
         elif counter == 0:
-            print(*numbers, sep=" ")
             break
-
-print(*numbers, sep=" ")
+if counter == 5:
+    print("No")
+else:
+    print(*top_five_numbers, sep=" ")
