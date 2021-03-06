@@ -1,48 +1,50 @@
-line = input()
-users_sides = {}
-dark_users = {}
+def change_sides(side, user):
+    user_found = False
+    user_side = ''
+    if side not in force:
+        force[side] = []
+    for key, value in force.items():
+        if user in force[key]:
+            user_found = True
+            user_side = key
+    if user_found:
+        force[user_side].remove(user)
+        force[side].append(user)
+    else:
+        force[side].append(user)
+    if not user_side == side:
+        print(f"{user} joins the {side} side!")
 
-while not line == "Lumpawaroo":
-    line2 = line.split()
-    if "|" in line2:
-        token = line.split(" | ")
-        force_side = token[0]
-        force_user = token[1]
-        if force_side not in users_sides:
-            users_sides[force_side] = []
-            if force_user not in users_sides[force_side]:
-                users_sides[force_side].append(force_user)
-        else:
-            if force_user not in users_sides[force_side]:
-                users_sides[force_side].append(force_user)
 
-    elif "->" in line2:
-        token = line.split(" -> ")
-        force_side = token[1]
-        force_user = token[0]
-        list_of_keys = [key for key in users_sides.keys()]
-        key1 = list_of_keys[0]
-        key2 = list_of_keys[1]
-        if force_user in users_sides[key1]:
-            users_sides[key1].remove(force_user)
-            users_sides[key2].append(force_user)
-            print(f"{force_user} joins the {force_side} side!")
+def register_user(side, user):
+    user_found = False
+    if side not in force:
+        force[side] = []
+    for key, value in force.items():
+        if user in force[key]:
+            user_found = True
+    if not user_found:
+        force[side].append(user)
 
-        elif force_user in users_sides[key2]:
-            users_sides[key2].remove(force_user)
-            users_sides[key1].append(force_user)
-            print(f"{force_user} joins the {force_side} side!")
-        else:
-            users_sides[force_side].append(force_user)
-            print(f"{force_user} joins the {force_side} side!")
 
-    line = input()
+data = input()
+force_user = ""
+force_side = ""
+force = {}
 
-sorted_users = dict(sorted(users_sides.items(), key=lambda kvp: (-len(kvp[1]), kvp[0])))
+while "Lumpawaroo" not in data:
+    if "|" in data:
+        force_side, force_user = data.split(" | ")
+        register_user(force_side, force_user)
+    elif "->" in data:
+        force_user, force_side = data.split(" -> ")
+        change_sides(force_side, force_user)
+    data = input()
+force = dict(sorted(force.items(), key=lambda kvp: (-len(kvp[1]), kvp[0])))
 
-for key in sorted_users.keys():
-    if len(sorted_users[key]) != 0:
-        print(f"Side: {key}, Members: {len(sorted_users[key])}")
-        sorted_list_users = sorted(sorted_users[key])
-        for user in sorted_list_users:
-            print(f"! {user}")
+for k, v in force.items():
+    if len(force[k]) > 0:
+        force[k].sort()
+        print(f"Side: {k}, Members: {len(force[k])}")
+        for i in range(len(force[k])):
+            print(f"! {force[k][i]}")
